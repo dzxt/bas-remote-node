@@ -41,7 +41,7 @@ module.exports = class BasRemoteClient {
     this.on('messageReceived', (message) => {
       const { async, data, type, id } = message;
 
-      if (type === 'thread_start') {
+      if (type === 'thread_start'|| type==='run_type_select') {
         this._waitResolve();
       } else if (type === 'message') {
         this._waitReject(new Error(data.text));
